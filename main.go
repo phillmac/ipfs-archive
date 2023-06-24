@@ -69,7 +69,7 @@ func run(cliCtx *cli.Context) error {
 	s = spinner.New(spinner.CharSets[14], 100*time.Millisecond)
 	s.FinalMSG = fmt.Sprintf("Archived %s\n", seedUrl)
 	s.Prefix = fmt.Sprintf("Archiving %s ", seedUrl)
-	ipfsAPI = fmt.Sprintf("--api=/%s/%s/tcp/%s", os.Getenv("IPFS_API_PREFIX"), os.Getenv("IPFS_API_HOST"), os.Getenv("IPFS_API_PORT"))
+	ipfsAPI := fmt.Sprintf("--api=/%s/%s/tcp/%s", os.Getenv("IPFS_API_PREFIX"), os.Getenv("IPFS_API_HOST"), os.Getenv("IPFS_API_PORT"))
 	s.Start()
 	cmd := exec.Command("ipfs", ipfsAPI, "add", "-r", "-w", "--pin=false", path.Join(scraper.SnapshotDir, scraper.Id))
 	output, err := cmd.Output()

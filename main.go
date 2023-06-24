@@ -74,7 +74,7 @@ func run(cliCtx *cli.Context) error {
 	cmd := exec.Command("ipfs", ipfsAPI, "add", "-r", "-w", "--pin=false", path.Join(scraper.SnapshotDir, scraper.Id))
 	output, err := cmd.Output()
 	if err != nil {
-		// logger.Error("Error running ipfs command", zap.Error(err))
+		logger.Error("Error running ipfs command", zap.Error(err))
 		logger.Error(fmt.Sprintf("Output from ipfs command: %s", string(output)))
 		logger.Error(fmt.Sprintf("Path for API: %s", ipfsAPI))
 		return cli.NewExitError("", -1)

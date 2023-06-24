@@ -12,6 +12,8 @@ import (
 
 	"sync"
 
+	"strings"
+
 	"compress/gzip"
 	"time"
 
@@ -144,21 +146,20 @@ func (s *Scraper) Scrape() error {
 	})
 
 	doc.Find("a").Each(func(i int, sel *goquery.Selection) {
-		aHref, exists := sel.Attr("href")
+		href, exists := sel.Attr("href")
 		if !exists {
 			return
 		}
 
-		isZip := strings.HasSuffix(aHref.String(), ".zip")
-
+		isZip := strings.HasSuffix(href, ".zip")
 		if !isZip {
 			return
 		}
 
-		sel.SetAttr("href", s.rewriteAssetUrl(aHref))
+		sel.SetAttr("href", s.rewriteAssetUrl(href))
 		sel.RemoveAttr("crossorigin")
 
-		s.queueResource(NewAsset(aHref))
+		s.queueResource(NewAsset(href))
 	})
 
 	s.wg.Wait()

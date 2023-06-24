@@ -159,7 +159,12 @@ func (s *Scraper) Scrape() error {
 		sel.SetAttr("href", s.rewriteAssetUrl(href))
 		sel.RemoveAttr("crossorigin")
 
-		s.queueResource(NewAsset(s.toAbsUrl(href, nil)))
+		absHref, err := s.toAbsUrl(href, nil)
+		if err != nil {
+			return
+		}
+
+		s.queueResource(NewAsset(absHref))
 	})
 
 	s.wg.Wait()

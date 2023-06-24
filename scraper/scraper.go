@@ -158,10 +158,12 @@ func (s *Scraper) Scrape() error {
 			return
 		}
 
+		rewritePrefixes := []string{"file:///", "/"}
+
 
 		var hrefPath string
 
-		if strings.HasPrefix(href, "/") {
+		if startsWithAny(href, rewritePrefixes) {
 
 			hrefPath = s.rewriteAssetUrl(href)
 			if hrefPath == "" {
@@ -170,7 +172,7 @@ func (s *Scraper) Scrape() error {
 		} else {
 			hrefPath = href
 		}
-		fmt.Println(href, " - ", hrefPath)
+		// fmt.Println(href, " - ", hrefPath)
 
 		sel.SetAttr("href", hrefPath)
 		sel.RemoveAttr("crossorigin")
@@ -402,6 +404,19 @@ func endsWithAny(str string, options []string) bool {
 	for _, option := range options {
 		lowercaseOption := strings.ToLower(option)
 		if strings.HasSuffix(lowercaseStr, lowercaseOption) {
+			return true
+		}
+	}
+
+	return false
+}
+
+func startsWithAny(str string, options []string) bool {
+	lowercaseStr := strings.ToLower(str)
+
+	for _, option := range options {
+		lowercaseOption := strings.ToLower(option)
+		if strings.HasPrefix(lowercaseStr, lowercaseOption) {
 			return true
 		}
 	}

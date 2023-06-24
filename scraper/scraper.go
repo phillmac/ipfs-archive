@@ -143,6 +143,24 @@ func (s *Scraper) Scrape() error {
 		s.queueResource(NewScript(scriptSrc))
 	})
 
+	doc.Find("a").Each(func(i int, sel *goquery.Selection) {
+		aHref, exists := sel.Attr("href")
+		if !exists {
+			return
+		}
+
+		isZip := strings.HasSuffix(aHref.String(), ".zip")
+
+		if !isZip {
+			return
+		}
+
+		sel.SetAttr("href", s.rewriteAssetUrl(aHref))
+		sel.RemoveAttr("crossorigin")
+
+		s.queueResource(NewAsset(aHref))
+	})
+
 	s.wg.Wait()
 
 	_, indexFilename, err := s.ensureFilename(&index{

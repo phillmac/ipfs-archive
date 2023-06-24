@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/jirwin/ipfs-archive/api/swagger/models"
+	"github.com/phillmac/ipfs-archive/api/swagger/models"
 )
 
 // ArchiveURLCreatedCode is the HTTP code returned for type ArchiveURLCreated

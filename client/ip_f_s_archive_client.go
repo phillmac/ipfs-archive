@@ -11,7 +11,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/jirwin/ipfs-archive/client/ipfs"
+	"github.com/phillmac/ipfs-archive/client/ipfs"
 )
 
 // Default IP f s archive HTTP client.

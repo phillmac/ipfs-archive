@@ -15,10 +15,10 @@ import (
 
 	"syscall"
 
-	"github.com/jirwin/ipfs-archive/api"
-	"github.com/jirwin/ipfs-archive/api/swagger/restapi"
-	"github.com/jirwin/ipfs-archive/api/swagger/restapi/operations"
-	"github.com/jirwin/ipfs-archive/version"
+	"github.com/phillmac/ipfs-archive/api"
+	"github.com/phillmac/ipfs-archive/api/swagger/restapi"
+	"github.com/phillmac/ipfs-archive/api/swagger/restapi/operations"
+	"github.com/phillmac/ipfs-archive/version"
 )
 
 func main() {

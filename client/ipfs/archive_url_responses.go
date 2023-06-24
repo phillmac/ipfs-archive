@@ -13,7 +13,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/jirwin/ipfs-archive/models"
+	"github.com/phillmac/ipfs-archive/models"
 )
 
 // ArchiveURLReader is a Reader for the ArchiveURL structure.

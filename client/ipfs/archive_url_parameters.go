@@ -17,7 +17,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/jirwin/ipfs-archive/models"
+	"github.com/phillmac/ipfs-archive/e/models"
 )
 
 // NewArchiveURLParams creates a new ArchiveURLParams object

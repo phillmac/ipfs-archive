@@ -14,10 +14,10 @@ $ ipfs-archive --url URL
 If you have go installed:
 
 ```bash
-$ go install github.com/jirwin/ipfs-archive
+$ go install github.com/phillmac/ipfs-archive
 ```
 
-Or download a pre-built binary from the [releases](https://github.com/jirwin/ipfs-archive/releases).
+Or download a pre-built binary from the [releases](https://github.com/phillmac/ipfs-archive/releases).
 
 ## Author
 [Justin Gallardo](https://github.com/jirwin)

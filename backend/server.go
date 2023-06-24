@@ -11,7 +11,7 @@ import (
 
 	"time"
 
-	"github.com/jirwin/ipfs-archive/scraper"
+	"github.com/phillmac/ipfs-archive/scraper"
 	"go.uber.org/zap"
 	netctx "golang.org/x/net/context"
 	"google.golang.org/grpc/codes"

@@ -16,8 +16,8 @@ import (
 
 	"fmt"
 
-	_ "github.com/jirwin/ipfs-archive/frontend/statik"
-	"github.com/jirwin/ipfs-archive/version"
+	_ "github.com/phillmac/ipfs-archive/frontend/statik"
+	"github.com/phillmac/ipfs-archive/version"
 )
 
 func main() {

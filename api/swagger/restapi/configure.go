@@ -12,7 +12,7 @@ import (
 	"github.com/rs/cors"
 	graceful "github.com/tylerb/graceful"
 
-	"github.com/jirwin/ipfs-archive/api/swagger/restapi/operations"
+	"github.com/phillmac/ipfs-archive/api/swagger/restapi/operations"
 )
 
 // This file is safe to edit. Once it exists it will not be overwritten

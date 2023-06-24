@@ -7,8 +7,8 @@ import (
 
 	"fmt"
 
-	"github.com/jirwin/ipfs-archive/backend"
-	"github.com/jirwin/ipfs-archive/version"
+	"github.com/phillmac/ipfs-archive/backend"
+	"github.com/phillmac/ipfs-archive/version"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	cli "gopkg.in/urfave/cli.v1"

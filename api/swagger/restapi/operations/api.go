@@ -19,7 +19,7 @@ import (
 	strfmt "github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/jirwin/ipfs-archive/api/swagger/restapi/operations/ipfs"
+	"github.com/phillmac/ipfs-archive/api/swagger/restapi/operations/ipfs"
 )
 
 // NewAPI creates a new  instance

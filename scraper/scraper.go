@@ -26,7 +26,7 @@ import (
 	"fmt"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/jirwin/ipfs-archive/version"
+	"github.com/phillmac/ipfs-archive/version"
 	"go.uber.org/zap"
 )
 

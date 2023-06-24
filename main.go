@@ -75,8 +75,8 @@ func run(cliCtx *cli.Context) error {
 	output, err := cmd.Output()
 	if err != nil {
 		// logger.Error("Error running ipfs command", zap.Error(err))
-		logger.Error("Output from ipfs command: ", string(output))
-		logger.Error("Path for API:", ipfsAPI)
+		logger.Error(fmt.Sprintf("Output from ipfs command: %s", string(output)))
+		logger.Error(fmt.Sprintf("Path for API: %s", ipfsAPI))
 		return cli.NewExitError("", -1)
 	}
 

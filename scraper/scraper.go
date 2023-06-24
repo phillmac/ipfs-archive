@@ -350,7 +350,7 @@ func NewScraper(ctx context.Context, logger *zap.Logger, id, seed string) *Scrap
 		Id:            id,
 		SnapshotDir:   snapshotDir,
 		client: &http.Client{
-			Timeout: time.Second * 10,
+			Timeout: time.Second * 3600,
 			Transport: &http.Transport{
 				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 			},

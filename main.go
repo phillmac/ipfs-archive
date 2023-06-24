@@ -15,8 +15,8 @@ import (
 	"time"
 
 	"github.com/briandowns/spinner"
-	"github.com/jirwin/ipfs-archive/scraper"
-	"github.com/jirwin/ipfs-archive/version"
+	"github.com/phillmac/ipfs-archive/scraper"
+	"github.com/phillmac/ipfs-archive/version"
 	"github.com/pborman/uuid"
 	"go.uber.org/zap"
 	cli "gopkg.in/urfave/cli.v1"

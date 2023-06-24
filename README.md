@@ -1,7 +1,7 @@
 ipfs-archive
 =============
 
-## Usage
+### Usage
 
 Using `ipfs-archive` is simple. Simply run the following command:
 

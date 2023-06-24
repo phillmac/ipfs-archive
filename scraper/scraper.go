@@ -151,20 +151,22 @@ func (s *Scraper) Scrape() error {
 			return
 		}
 
-		isZip := strings.HasSuffix(href, ".zip")
-		if !isZip {
+		allowedExtns := []string{".zip", ".mp3", ".mp4", ".pdf"}
+
+
+		if endsWithAny(href, allowedExtns) == false  {
 			return
 		}
 
-		sel.SetAttr("href", s.rewriteAssetUrl(href))
+		hrefPath := s.rewriteAssetUrl(href)
+		if hrefPath == "" {
+			return
+		}
+
+		sel.SetAttr("href", hrefPath)
 		sel.RemoveAttr("crossorigin")
 
-		absHref, err := s.toAbsUrl(href, nil)
-		if err != nil {
-			return
-		}
-
-		s.queueResource(NewAsset(absHref))
+		s.queueResource(NewAsset(hrefPath))
 	})
 
 	s.wg.Wait()
@@ -383,4 +385,17 @@ func NewScraper(ctx context.Context, logger *zap.Logger, id, seed string) *Scrap
 	}
 
 	return scraper
+}
+
+func endsWithAny(str string, options []string) bool {
+	lowercaseStr := strings.ToLower(str)
+
+	for _, option := range options {
+		lowercaseOption := strings.ToLower(option)
+		if strings.HasSuffix(lowercaseStr, lowercaseOption) {
+			return true
+		}
+	}
+
+	return false
 }

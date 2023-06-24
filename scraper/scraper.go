@@ -158,9 +158,17 @@ func (s *Scraper) Scrape() error {
 			return
 		}
 
-		hrefPath := s.rewriteAssetUrl(href)
-		if hrefPath == "" {
-			return
+
+		var hrefPath string
+
+		if strings.HasPrefix(href, "/") {
+
+			hrefPath = s.rewriteAssetUrl(href)
+			if hrefPath == "" {
+				return
+			}
+		} else {
+			hrefPath = href
 		}
 
 		sel.SetAttr("href", hrefPath)

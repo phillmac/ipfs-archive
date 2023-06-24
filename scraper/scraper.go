@@ -158,7 +158,7 @@ func (s *Scraper) Scrape() error {
 			return
 		}
 
-		rewritePrefixes := []string{"file:///", "/"}
+		rewritePrefixes := []string{"file:///"}
 
 
 		var hrefPath string

@@ -170,6 +170,7 @@ func (s *Scraper) Scrape() error {
 		} else {
 			hrefPath = href
 		}
+		fmt.Println(href, " - ", hrefPath)
 
 		sel.SetAttr("href", hrefPath)
 		sel.RemoveAttr("crossorigin")

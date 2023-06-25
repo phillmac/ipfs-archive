@@ -325,6 +325,8 @@ func (s *Scraper) fetch(resource Resource) {
 		return
 	}
 
+	fmt.Println("Begin Feteching ", realUrl.String())
+
 	respReader, err := s.request(realUrl.String())
 	if err != nil {
 		s.Log.Error("Unable to fetch resource",
@@ -333,8 +335,6 @@ func (s *Scraper) fetch(resource Resource) {
 		)
 		return
 	}
-
-	fmt.Println("Feteched ", realUrl.String())
 
 	transformedResp, err := resource.Transform(s, realUrl, respReader)
 	if err != nil {

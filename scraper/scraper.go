@@ -334,6 +334,8 @@ func (s *Scraper) fetch(resource Resource) {
 		return
 	}
 
+	fmt.Println("Feteched ", realUrl.String())
+
 	transformedResp, err := resource.Transform(s, realUrl, respReader)
 	if err != nil {
 		s.Log.Error("Error while transforming resource", zap.Error(err), zap.String("url", realUrl.String()),

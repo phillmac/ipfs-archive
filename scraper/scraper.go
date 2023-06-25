@@ -325,7 +325,7 @@ func (s *Scraper) fetch(resource Resource) {
 		return
 	}
 
-	fmt.Println("Begin Feteching ", realUrl.String())
+	fmt.Println("Begin Feteching ", realUrl.String(), "\n")
 
 	respReader, err := s.request(realUrl.String())
 	if err != nil {
@@ -363,7 +363,7 @@ func (s *Scraper) fetch(resource Resource) {
 		return
 	}
 
-	fmt.Printf("The file is %d bytes long", fi.Size())
+	fmt.Printf("The file is %d bytes long", fi.Size(), "\n")
 }
 
 func (s *Scraper) queueResource(resource Resource) {

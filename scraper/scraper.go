@@ -161,23 +161,25 @@ func (s *Scraper) Scrape() error {
 		rewritePrefixes := []string{"file:///"}
 
 
-		var hrefPath string
 
-		if startsWithAny(href, rewritePrefixes) {
+		hrefPath := s.rewriteAssetUrl(href)
 
-			hrefPath = s.rewriteAssetUrl(href)
-			if hrefPath == "" {
-				return
-			}
-		} else {
-			hrefPath = href
+		if hrefPath == "" {
+			return
 		}
-		fmt.Println(href, " - ", hrefPath)
+
+		fmt.Println(href, " --> ", hrefPath)
 
 		sel.SetAttr("href", hrefPath)
 		sel.RemoveAttr("crossorigin")
 
-		s.queueResource(NewAsset(hrefPath))
+		if startsWithAny(href, rewritePrefixes) {
+			s.queueResource(NewAsset(hrefPath))
+
+		} else {
+			s.queueResource(NewAsset(href))
+		}
+
 	})
 
 	s.wg.Wait()

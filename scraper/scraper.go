@@ -352,6 +352,18 @@ func (s *Scraper) fetch(resource Resource) {
 		)
 		return
 	}
+
+	fi, err := out.Stat()
+	if err != nil {
+		s.Log.Error("Error gettinng file size",
+			zap.Error(err),
+			zap.String("url", resource.Url()),
+			zap.String("filename", filename),
+		)
+		return
+	}
+
+	fmt.Printf("The file is %d bytes long", fi.Size())
 }
 
 func (s *Scraper) queueResource(resource Resource) {
